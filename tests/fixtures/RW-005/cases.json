@@ -1,0 +1,32 @@
+{
+  "ruleId": "RW-005",
+  "configure": {
+    "RW-005": {
+      "values": [
+        "V 类",
+        "垂直天窗",
+        "综合天窗",
+        "施工天窗",
+        "维修天窗"
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "RW-005-compliant.json",
+      "expect": {
+        "ruleId": "RW-005",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "RW-005-unsafe.json",
+      "expect": {
+        "ruleId": "RW-005",
+        "count": 1
+      }
+    }
+  ]
+}

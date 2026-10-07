@@ -1,0 +1,43 @@
+import { describeTablePlugin } from './table-plugin-suite.ts'
+import { Config } from '../src/config.ts'
+import { parseMaterial, runCheck, SPEC } from '../src/model.ts'
+import { buildView } from '../src/view.ts'
+import { inject, name, resolvePackageFile, TOOL_NAME } from '../src/index.ts'
+
+describeTablePlugin({
+  name,
+  inject,
+  TOOL_NAME,
+  resolvePackageFile,
+  Config,
+  rulesFile: 'rules/railway-window.yaml',
+  parseMaterial,
+  runCheck,
+  buildView,
+  columnNames: SPEC.columns,
+  samples: {
+    good: {
+          "date": "2026-03-10",
+          "bureau": "某某铁路局集团公司",
+          "rows": [
+                {
+                      "序号": "1",
+                      "天窗类型": "V 类",
+                      "线别": "上行",
+                      "区间": "K120+000 至 K125+000",
+                      "开始时间": "2026-03-10 09:00",
+                      "结束时间": "2026-03-10 11:00",
+                      "天窗时长": "0.0833",
+                      "申请时长": "120",
+                      "批准时长": "120",
+                      "作业内容": "更换接触网吊弦",
+                      "施工命令号": "调令〔2026〕第 018 号",
+                      "申请单位": "某某供电段",
+                      "批准人": "李调度",
+                      "状态": "已兑现"
+                }
+          ]
+    },
+    unknownColumn: { rows: [{ 备注: '甲' }] },
+  },
+})

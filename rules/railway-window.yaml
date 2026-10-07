@@ -1,0 +1,191 @@
+# 铁路施工天窗台账核对 规则库
+#
+# 规则数据与代码分离：替换本文件即可切换规则集版本，无需改动 TypeScript。
+#
+# 条款引用纪律（由 shared/ruleset.ts 强制校验）：
+#   - 每条规则必须写全 document / number / clause / excerpt / kind / source，
+#     且 excerpt 必须是逐字摘录，不得改写。
+#   - kind: direct                       条款直接规定了所检查的要求
+#   - kind: derived-from-principle       条款未直接规定，仅能由原则性条款推论（severity 最多 warn）
+#   - kind: institutional-configuration 阈值出自本机构配置（severity 最多 info）
+#
+# ⚠️⚠️ 本规则库的诚实说明：**excerpt 一律不是引文。**
+#   本插件核对的是"铁路营业线施工天窗台账"的**时间与算术自洽**：
+#     天窗起止时间是否可解析且先后成立、天窗时长是否等于起止之差、
+#     批准时长是否不超过申请时长、作业内容与施工命令号是否填写、
+#     申请单位是否填写、天窗编号是否重复、是否残留模板占位符。
+#   其规范载体是**《铁路营业线施工安全管理办法》（国铁集团／原铁道部文件）**
+#   与各铁路局集团公司的**施工天窗管理办法**、**调度命令管理办法**。
+#   **核查未取得这些文件的逐字条文**，故每条 excerpt 如实写明，kind 降为 derived-from-principle（封顶 warn）。
+#
+# ⚠️⚠️ 另一条**必须保留**的边界：**本插件绝不判定天窗申请是否应当批准、
+#   施工是否侵入限界、是否构成违章施工、是否影响行车安全**。
+#   那需要调度、工务与安全部门的专业判断，也是行车安全的核心环节。
+#   → 本插件只核对**台账自身的齐备与算术**，且**它看不到现场的实际情况**。
+#   → **天窗类型清单（windowTypes）与状态清单（statuses）都出厂为空**：
+#     天窗如何分类（V 类、垂直天窗、综合天窗等）与状态口径随各局办法变化。
+#   → **批准时长的上限（maxApprovedRatio）出厂未配置**："批准不得超过申请的多少"
+#     由各局施工管理办法规定，本插件不硬编码任何比例。
+
+plugin: dsh-railway-window
+version: "2026.1"
+
+rules:
+  - id: RW-001
+    title: 每条天窗都应填写作业内容与施工命令号
+    severity: warn
+    basis:
+      document: 《铁路营业线施工安全管理办法》
+      number: 现行版本与条号本次未核实
+      clause: 关于施工作业与调度命令的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.gov.cn/
+    params:
+        check:
+          kind: presenceAny
+          fields: ["workContent","permitNo"]
+          fix: 补填作业内容与施工命令号；本条只核对是否填写，不判断施工是否违反规定
+    note: >-
+      作业内容与施工命令号是**天窗台账的最低可核对信息**：
+      缺其一，这次天窗做了什么、凭什么开工都无从追溯。
+      本次未取得明文条号，故封顶 warn。
+      本条只核对"至少填了一个"，**不判断该施工是否在准许范围内、是否侵入限界**。
+
+  - id: RW-002
+    title: 天窗起止时间应可解析且先后成立
+    severity: warn
+    basis:
+      document: 《铁路营业线施工安全管理办法》
+      number: 现行版本与条号本次未核实
+      clause: 关于天窗起止时间的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.gov.cn/
+    params:
+        check:
+          kind: date
+          field: startAt
+          notAfterField: endAt
+          fix: 天窗结束时间不应早于开始时间；核对两个时间的填写
+    note: >-
+      "先开始、后结束"是天窗的**时间前提**；时间可解析是台账能被程序处理的前提。
+      本次未取得明文条号，故封顶 warn。
+      本条只比较两个时刻（同一时刻视为不晚于）。
+      ⚠️ 本插件**不处理跨零点**：若本局台账把跨零点的天窗写成两个同日时刻，
+      本条会报差异 —— 此时应在时间栏补上日期，或停用本条。
+      时间无法解析时会单独报出，**不会静默跳过**。
+
+  - id: RW-003
+    title: 天窗时长应等于起止时间之差
+    severity: warn
+    basis:
+      document: 《铁路营业线施工安全管理办法》
+      number: 现行版本与条号本次未核实
+      clause: 关于天窗时长的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.gov.cn/
+    params:
+        check:
+          kind: derivedDays
+          daysField: durationMin
+          fromField: startAt
+          toField: endAt
+          tolerance: 0.01
+          fix: 天窗时长应等于结束时间减开始时间；本条按天核对，容差 0.01 天
+    note: >-
+      天窗时长是**起止时刻之差**，属纯算术核对；本次未取得明文条号，故封顶 warn。
+      ⚠️ **本条的时长单位是"天"**：引擎计算的是两个时刻之间的天数。
+      台账若以分钟记录时长（如 120 分钟），数值口径会相差 1440 倍。
+      **因此本条只在台账以天为单位记录时长时适用**，容差出厂 0.01 天。
+      若本局台账用分钟记时长，请把 daysField 指向一个以天为单位的时长栏，或停用本条。
+      本条**不判断天窗时长是否够用**。
+
+  - id: RW-004
+    title: 批准时长不应超过申请时长
+    severity: info
+    basis:
+      document: 各铁路局集团公司施工天窗管理办法（本机构配置）
+      number: 无统一标准（本条依据为台账的申请与批准两栏）
+      clause: 关于天窗时长审批的条款（本次未取得条号）
+      excerpt: 本条依据为本机构配置的口径，不存在可引用的标准条文；本规则库不伪造引文。
+      kind: institutional-configuration
+      source: https://www.gov.cn/
+    params:
+        check:
+          kind: fieldComparison
+          leftField: approvedMin
+          rightField: appliedMin
+          relation: lte
+          fix: 批准时长不应超过申请时长；核对两栏的填写
+    note: >-
+      批准时长超过申请时长，通常意味着两栏填反或抄错 —— 因为调度批准不会给出比申请更长的天窗。
+      本次未取得明文条号，故封顶 info。
+      本条**只在两栏都有可解析数值时**执行；缺一即进 skipped。
+      ⚠️ **本插件不核对"批准时长是否被削减到某个比例以下"** ——
+      那类上限由各局施工管理办法规定，**本插件不硬编码任何比例**。
+      本条只做数值比较，**不判断天窗申请是否应当批准**。
+
+  - id: RW-005
+    title: 天窗类型应使用本机构口径的取值
+    severity: info
+    basis:
+      document: 各铁路局集团公司施工天窗管理办法（本机构配置）
+      number: 无统一标准（本条依据为本机构分类口径）
+      clause: 关于天窗类型的条款（本次未取得条号）
+      excerpt: 本条依据为本机构配置的口径，不存在可引用的标准条文；本规则库不伪造引文。
+      kind: institutional-configuration
+      source: https://www.gov.cn/
+    params:
+        check:
+          kind: enum
+          field: windowType
+          values: []
+    note: >-
+      values 出厂为空，表示**未配置**，本条进 skipped。
+      依据说明：天窗的分类口径（例如「V 类」「垂直天窗」「综合天窗」「施工天窗」「维修天窗」）
+      随**各局施工管理办法**变化，本插件**不硬编码任何分类体系**。
+      本条只核对所填值是否在册，**不判断该天窗应归入哪一类**。
+
+  - id: RW-006
+    title: 天窗编号不应在台账内重复
+    severity: warn
+    basis:
+      document: 《铁路营业线施工安全管理办法》
+      number: 现行版本与条号本次未核实
+      clause: 关于天窗计划与编号的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.gov.cn/
+    params:
+        check:
+          kind: unique
+          field: windowNo
+    note: >-
+      天窗编号唯一是"每项天窗只被登记一次"的**前提条件**：
+      编号重复会让时长统计与兑现率失真，也无法在调度记录中准确指认。
+      本次未取得明文条号，故封顶 warn。比较时忽略空白字符。
+      注意：同一区间同一天分多次给点（多段天窗）是正常的，此时应使用不同的天窗编号。
+
+  - id: RW-007
+    title: 台账应声明施工日期与申请单位
+    severity: warn
+    basis:
+      document: 《铁路营业线施工安全管理办法》
+      number: 现行版本与条号本次未核实
+      clause: 关于施工计划与施工单位的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.gov.cn/
+    params:
+        check:
+          kind: headerPresence
+          fields: ["date","bureau"]
+    note: >-
+      台账若不写明施工日期与所属铁路局（集团公司），天窗就无法与具体的施工计划和管辖范围对应。
+      本次未取得明文条号，故封顶 warn。
+      配置项 date 对应材料表头的施工日期，bureau 对应铁路局（集团公司）。
+      若本机构表式还在表头记录天窗计划号，把 skylightPlanNo 加进 fields 即可。
+
+disabled: []
