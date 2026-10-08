@@ -48,8 +48,7 @@ work encroached on the clearance gauge, whether it was an unsafe act, or whether
 ## Install
 
 ```sh
-pnpm pack
-dsh plugin --profile <name> add ./*.tgz
+dsh plugin --profile <name> add dsh-railway-window
 dsh --profile <name> --dump-config | grep 'dsh-railway-window'
 ```
 

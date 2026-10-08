@@ -59,8 +59,7 @@ Registers the `railway_window` tool. It reads one work-window register — the d
 ## Install
 
 ```sh
-pnpm pack
-dsh plugin --profile <name> add ./dsh-railway-window-0.1.0.tgz
+dsh plugin --profile <name> add dsh-railway-window
 dsh --profile <name> --dump-config | grep 'dsh-railway-window'
 ```
 
