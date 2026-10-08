@@ -1,4 +1,25 @@
-# dsh-railway-window
+# dsh-railway-window — Comprobación de tiempos y aritmética del registro de ventanas de trabajo ferroviario
+
+`dsh-railway-window` lee un registro ferroviario de ventanas de trabajo —la cabecera del día más una fila por ventana— y comprueba la coherencia temporal y aritmética de ese propio registro: que cada ventana registre su contenido de trabajo o su número de orden de control de tráfico, que el inicio y el fin se puedan analizar y sean sucesivos, que la duración registrada sea igual al intervalo, que la duración aprobada no supere la solicitada, que el tipo de ventana proceda de su vocabulario, que los números de ventana no se repitan y que el registro declare su fecha de trabajo y la administración ferroviaria (grupo empresarial).
+
+## Qué responde
+
+| Usted pregunta | Qué responde |
+|---|---|
+| Una fila no registra ni el contenido de trabajo ni el número de orden de control de tráfico. ¿Se informa de ello? | Sí. `RW-001` exige que en cada ventana esté puesto al menos uno de los dos, `workContent` o `permitNo`, e informa de la fila en la que faltan ambos. Solo comprueba que uno de ellos esté rellenado; no juzga si la obra se mantuvo dentro de su ámbito autorizado ni si algo invadió el gálibo de circulación. |
+| Una ventana va de `23:30` a `01:30` y está escrita como dos horas del mismo día. ¿Por qué se informa de que el fin es anterior al inicio? | `RW-002` compara los dos instantes y no modela el cruce de medianoche, así que un par del mismo día se lee invertido; registre la fecha en ambos lados o desactive la regla. Si el inicio y el fin coinciden, se considera que el inicio no es posterior, y una hora que no se puede analizar se informa por separado en lugar de omitirse en silencio. |
+| La columna de duración está en minutos (`120`) y la ventana fue de 08:00 a 10:00. ¿Por qué no cuadra la aritmética? | `RW-003` mide el intervalo en días, así que un registro en minutos difiere por un factor de 1440; la tolerancia de fábrica es de 0,01 día. Apunte `daysField` a una columna de duración expresada en días o desactive la regla. Solo comprueba la aritmética, nunca si la ventana fue lo bastante larga para la obra. |
+| La duración aprobada es mayor que la solicitada. ¿Qué se informa, y qué ocurre si falta una de las dos columnas? | `RW-004` informa de ese par, porque un despachador no concede más de lo solicitado y lo habitual es que las dos columnas estén invertidas. Solo se ejecuta cuando `approvedMin` y `appliedMin` se pueden analizar; si falta uno, informa de que entró en `skipped`. No incorpora ningún techo de reducción de la aprobación y no concluye si la ventana debería concederse. |
+| La columna del tipo de ventana tiene valor, pero la regla nunca informa de nada. ¿Se está ejecutando? | No. `RW-005` viene con `values: []`, es decir sin configurar, e informa de que entró en `skipped` hasta que liste las clasificaciones que usan las medidas de su administración. Aun configurada, solo comprueba que el valor figure en su lista; no decide en qué clase debe encuadrarse una ventana. |
+| El registro del día está incompleto: la cabecera no nombra la administración y dos ventanas de un mismo tramo repiten número. ¿Qué reglas se activan? | Dos. `RW-007` informa de una cabecera que no declara la fecha de trabajo y la administración ferroviaria (grupo empresarial) —solo comprueba que la cabecera las declare, y puede añadir `skylightPlanNo` a sus `fields` si su formulario también registra un número de plan—. `RW-006` informa del `windowNo` repetido, comparando con los espacios en blanco ignorados; que un tramo reciba varias ventanas el mismo día es normal, así que numérelas por separado. |
+
+## Normas que sigue
+
+| Documento | Número | Reglas que lo citan |
+|---|---|---|
+| 《铁路营业线施工安全管理办法》 | 现行版本与条号本次未核实 | RW-001, RW-002, RW-003, RW-006, RW-007 |
+| 各铁路局集团公司施工天窗管理办法（本机构配置） | 无统一标准（本条依据为台账的申请与批准两栏） | RW-004 |
+| 各铁路局集团公司施工天窗管理办法（本机构配置） | 无统一标准（本条依据为本机构分类口径） | RW-005 |
 
 **Boundary:** this plugin checks a **铁路施工天窗台账** for time and arithmetic self-consistency — that each window
 records its work content or its traffic-control order number, that the start and end times parse and follow each

@@ -1,4 +1,25 @@
-# dsh-railway-window
+# dsh-railway-window — Verificação de tempos e aritmética do registo de janelas de trabalho ferroviário
+
+`dsh-railway-window` lê um registo ferroviário de janelas de trabalho —o cabeçalho do dia mais uma linha por janela— e verifica a coerência temporal e aritmética desse próprio registo: se cada janela regista o seu conteúdo de trabalho ou o seu número de ordem de controlo de tráfego, se o início e o fim são analisáveis e sucessivos, se a duração registada é igual ao intervalo, se a duração aprovada não excede a solicitada, se o tipo de janela vem do seu vocabulário, se os números de janela não se repetem e se o registo declara a sua data de trabalho e a administração ferroviária (grupo empresarial).
+
+## O que ele responde
+
+| Você pergunta | O que ele responde |
+|---|---|
+| Uma linha não regista nem o conteúdo de trabalho nem o número da ordem de controlo de tráfego. Isso é reportado? | Sim. `RW-001` exige que em cada janela esteja preenchido pelo menos um dos dois, `workContent` ou `permitNo`, e reporta a linha em que faltam ambos. Verifica apenas que um deles está preenchido; não julga se a obra se manteve dentro do âmbito autorizado nem se algo invadiu o gabarito de circulação. |
+| Uma janela vai de `23:30` a `01:30` e está escrita como duas horas do mesmo dia. Porque é reportado que o fim é anterior ao início? | `RW-002` compara os dois instantes e não modela a passagem da meia-noite, pelo que um par do mesmo dia é lido invertido; registe a data dos dois lados ou desative a regra. Se o início e o fim coincidirem, considera-se que o início não é posterior, e uma hora que não se consegue analisar é reportada à parte em vez de ser omitida em silêncio. |
+| A coluna da duração está em minutos (`120`) e a janela foi das 08:00 às 10:00. Porque é que a aritmética não bate certo? | `RW-003` mede o intervalo em dias, pelo que um registo em minutos difere por um fator de 1440; a tolerância de fábrica é de 0,01 dia. Aponte `daysField` para uma coluna de duração expressa em dias ou desative a regra. Verifica apenas a aritmética, nunca se a janela foi suficientemente longa para a obra. |
+| A duração aprovada é maior do que a solicitada. O que é reportado, e o que acontece se faltar uma das duas colunas? | `RW-004` reporta esse par, porque um despachante não concede mais do que foi solicitado e o habitual é as duas colunas estarem trocadas. Só é executada quando `approvedMin` e `appliedMin` são analisáveis; se faltar um, reporta que entrou em `skipped`. Não inclui qualquer tecto de redução da aprovação e não conclui se a janela devia ser concedida. |
+| A coluna do tipo de janela tem valor, mas a regra nunca reporta nada. Está a ser executada? | Não. `RW-005` vem com `values: []`, ou seja, por configurar, e reporta que entrou em `skipped` até indicar as classificações usadas pelas medidas da sua administração. Mesmo configurada, verifica apenas se o valor consta da sua lista; não decide em que classe uma janela deve ser enquadrada. |
+| O registo do dia está incompleto: o cabeçalho não nomeia a administração e duas janelas do mesmo troço repetem número. Que regras disparam? | Duas. `RW-007` reporta um cabeçalho que não declara a data de trabalho e a administração ferroviária (grupo empresarial) — verifica apenas que o cabeçalho as declare, e pode acrescentar `skylightPlanNo` aos seus `fields` se o seu formulário também registar um número de plano. `RW-006` reporta o `windowNo` repetido, comparando com os espaços em branco ignorados; um troço com várias janelas no mesmo dia é normal, pelo que deve numerá-las de forma distinta. |
+
+## Normas que segue
+
+| Documento | Número | Regras que o citam |
+|---|---|---|
+| 《铁路营业线施工安全管理办法》 | 现行版本与条号本次未核实 | RW-001, RW-002, RW-003, RW-006, RW-007 |
+| 各铁路局集团公司施工天窗管理办法（本机构配置） | 无统一标准（本条依据为台账的申请与批准两栏） | RW-004 |
+| 各铁路局集团公司施工天窗管理办法（本机构配置） | 无统一标准（本条依据为本机构分类口径） | RW-005 |
 
 **Boundary:** this plugin checks a **铁路施工天窗台账** for time and arithmetic self-consistency — that each window
 records its work content or its traffic-control order number, that the start and end times parse and follow each
