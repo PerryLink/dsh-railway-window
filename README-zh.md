@@ -1,6 +1,14 @@
 # dsh-railway-window — 铁路施工天窗台账核对
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-railway-window` 读取一份铁路施工天窗台账——当日表头加每条天窗一行——核对这份台账自身的时间与算术自洽：每条天窗是否记录了作业内容或施工命令号、起止时间是否可解析且先后成立、所记天窗时长是否等于起止之差、批准时长是否不超过申请时长、天窗类型是否出自你配置的取值、天窗编号是否唯一、台账是否声明施工日期与铁路局（集团公司）。
+
+## 实际输出长什么样
+
+![Terminal demo of dsh-railway-window: real output over its RW-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-demo.png)
+
+本插件对自己 `RW-002` 测试夹具的**真实输出**，不是示意图。规则库不伪造引文，因此每条发现都会同时写明所引条款，以及该条款原文本次未取得。
 
 ## 它回答什么问题
 

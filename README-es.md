@@ -1,6 +1,14 @@
 # dsh-railway-window — Comprobación de tiempos y aritmética del registro de ventanas de trabajo ferroviario
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-railway-window` lee un registro ferroviario de ventanas de trabajo —la cabecera del día más una fila por ventana— y comprueba la coherencia temporal y aritmética de ese propio registro: que cada ventana registre su contenido de trabajo o su número de orden de control de tráfico, que el inicio y el fin se puedan analizar y sean sucesivos, que la duración registrada sea igual al intervalo, que la duración aprobada no supere la solicitada, que el tipo de ventana proceda de su vocabulario, que los números de ventana no se repitan y que el registro declare su fecha de trabajo y la administración ferroviaria (grupo empresarial).
+
+## Cómo se ve la salida
+
+![Terminal demo of dsh-railway-window: real output over its RW-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-demo.png)
+
+Salida real de este plugin sobre su propio fixture de prueba `RW-002` — no es un montaje. El paquete de reglas no inventa citas, así que cada hallazgo nombra la cláusula aplicada y advierte que su texto no se obtuvo.
 
 ## Qué responde
 

@@ -1,6 +1,14 @@
 # dsh-railway-window — Verificação de tempos e aritmética do registo de janelas de trabalho ferroviário
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-railway-window` lê um registo ferroviário de janelas de trabalho —o cabeçalho do dia mais uma linha por janela— e verifica a coerência temporal e aritmética desse próprio registo: se cada janela regista o seu conteúdo de trabalho ou o seu número de ordem de controlo de tráfego, se o início e o fim são analisáveis e sucessivos, se a duração registada é igual ao intervalo, se a duração aprovada não excede a solicitada, se o tipo de janela vem do seu vocabulário, se os números de janela não se repetem e se o registo declara a sua data de trabalho e a administração ferroviária (grupo empresarial).
+
+## Como é a saída
+
+![Terminal demo of dsh-railway-window: real output over its RW-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-demo.png)
+
+Saída real deste plugin sobre o seu próprio fixture de teste `RW-002` — não é uma simulação. O pacote de regras não inventa citações, por isso cada achado nomeia a cláusula aplicada e avisa que o seu texto não foi obtido.
 
 ## O que ele responde
 
