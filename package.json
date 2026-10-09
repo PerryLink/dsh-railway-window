@@ -1,6 +1,6 @@
 {
   "name": "dsh-railway-window",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "铁路施工天窗台账核对（按时间窗、时长算术与命令号核对台账自洽，仅提示差异，不作出定性结论）",
   "type": "module",
   "main": "lib/index.mjs",
