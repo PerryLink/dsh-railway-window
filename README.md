@@ -4,6 +4,13 @@
 
 `dsh-railway-window` reads one railway work-window register — the day's header plus one row per window — and checks that register's own time and arithmetic self-consistency: that each window records its work content or its traffic-control order number, that the start and end times parse and follow each other, that the recorded duration equals the span, that the approved duration does not exceed the applied duration, that the window type comes from your vocabulary, that window numbers are unique, and that the register names its working date and railway bureau.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-railway-window
+dsh --profile <name> --dump-config | grep 'dsh-railway-window'
+```
+
 ## What it looks like
 
 ![Terminal demo of dsh-railway-window: real output over its RW-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-hero.png)
@@ -86,13 +93,6 @@ Registers the `railway_window` tool. It reads one work-window register — the d
 | `RW-005` | the window type comes from your vocabulary (off by default) | info | local |
 | `RW-006` | window numbers are unique | warn | principle |
 | `RW-007` | the register names its date and bureau | warn | principle |
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-railway-window
-dsh --profile <name> --dump-config | grep 'dsh-railway-window'
-```
 
 ## Configuration
 

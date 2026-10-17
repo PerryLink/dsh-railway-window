@@ -4,6 +4,13 @@
 
 `dsh-railway-window` एक रेलवे कार्य-विंडो रजिस्टर पढ़ता है — दिन का हेडर और प्रत्येक विंडो की एक पंक्ति — और उसी रजिस्टर की समय तथा अंकगणितीय संगति जाँचता है: क्या प्रत्येक विंडो अपनी कार्य-सामग्री या अपना यातायात-नियंत्रण आदेश क्रमांक दर्ज करती है, क्या आरंभ और समाप्ति के समय पढ़े जा सकते हैं और क्रम में हैं, क्या दर्ज अवधि ठीक अंतराल के बराबर है, क्या स्वीकृत अवधि आवेदित अवधि से अधिक नहीं है, क्या विंडो का प्रकार आपकी शब्दावली से आता है, क्या विंडो क्रमांक दोहराए नहीं गए हैं, और क्या रजिस्टर अपनी कार्य-तिथि तथा रेलवे प्रशासन (समूह कंपनी) घोषित करता है।
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-railway-window
+dsh --profile <name> --dump-config | grep 'dsh-railway-window'
+```
+
 ## आउटपुट कैसा दिखता है
 
 ![Terminal demo of dsh-railway-window: real output over its RW-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-hero.png)
@@ -75,13 +82,6 @@ work encroached on the clearance gauge, whether it was an unsafe act, or whether
 ## What it does
 
 नियम-सूची, फ़ील्ड और विस्तृत व्यवहार [README.md](README.md#what-it-does) (अंग्रेज़ी मुख्य संस्करण) में हैं। यह प्लगइन केवल उद्धृत धाराओं के सामने शाब्दिक अंतर सूचीबद्ध करता है और हर न चल पाई जाँच को `skipped` में बताता है।
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-railway-window
-dsh --profile <name> --dump-config | grep 'dsh-railway-window'
-```
 
 ## Configuration
 

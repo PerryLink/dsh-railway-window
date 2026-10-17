@@ -4,6 +4,13 @@
 
 `dsh-railway-window` 读取一份铁路施工天窗台账——当日表头加每条天窗一行——核对这份台账自身的时间与算术自洽：每条天窗是否记录了作业内容或施工命令号、起止时间是否可解析且先后成立、所记天窗时长是否等于起止之差、批准时长是否不超过申请时长、天窗类型是否出自你配置的取值、天窗编号是否唯一、台账是否声明施工日期与铁路局（集团公司）。
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-railway-window
+dsh --profile <name> --dump-config | grep 'dsh-railway-window'
+```
+
 ## 实际输出长什么样
 
 ![Terminal demo of dsh-railway-window: real output over its RW-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-hero.png)
@@ -75,13 +82,6 @@ work encroached on the clearance gauge, whether it was an unsafe act, or whether
 ## What it does
 
 规则表、字段说明与行为细节见 [README.md](README.md#what-it-does)（英文主版本）。本插件只列出材料与所引条款之间的字面差异，并对无法执行的检查在 `skipped` 中逐项说明。
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-railway-window
-dsh --profile <name> --dump-config | grep 'dsh-railway-window'
-```
 
 ## Configuration
 

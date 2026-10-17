@@ -4,6 +4,13 @@
 
 `dsh-railway-window` lê um registo ferroviário de janelas de trabalho —o cabeçalho do dia mais uma linha por janela— e verifica a coerência temporal e aritmética desse próprio registo: se cada janela regista o seu conteúdo de trabalho ou o seu número de ordem de controlo de tráfego, se o início e o fim são analisáveis e sucessivos, se a duração registada é igual ao intervalo, se a duração aprovada não excede a solicitada, se o tipo de janela vem do seu vocabulário, se os números de janela não se repetem e se o registo declara a sua data de trabalho e a administração ferroviária (grupo empresarial).
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-railway-window
+dsh --profile <name> --dump-config | grep 'dsh-railway-window'
+```
+
 ## Como é a saída
 
 ![Terminal demo of dsh-railway-window: real output over its RW-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-hero.png)
@@ -75,13 +82,6 @@ work encroached on the clearance gauge, whether it was an unsafe act, or whether
 ## What it does
 
 A tabela de regras, os campos e o comportamento detalhado estão em [README.md](README.md#what-it-does) (versão principal em inglês). O plugin apenas lista divergências literais frente às cláusulas citadas e indica em `skipped` cada verificação que não pôde ser executada.
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-railway-window
-dsh --profile <name> --dump-config | grep 'dsh-railway-window'
-```
 
 ## Configuration
 
