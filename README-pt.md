@@ -6,7 +6,9 @@
 
 ## Como é a saída
 
-![Terminal demo of dsh-railway-window: real output over its RW-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-demo.png)
+![Terminal demo of dsh-railway-window: real output over its RW-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-hero.png)
+
+![Animated terminal demo of dsh-railway-window](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-demo.gif)
 
 Saída real deste plugin sobre o seu próprio fixture de teste `RW-002` — não é uma simulação. O pacote de regras não inventa citações, por isso cada achado nomeia a cláusula aplicada e avisa que o seu texto não foi obtido.
 

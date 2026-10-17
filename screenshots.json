@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/assets/dsh-railway-window-hero.png",
+    "kind": "hero",
+    "alt": "dsh-railway-window terminal output",
+    "caption": "Real dsh-railway-window checker output; 31 tests passed."
+  },
+  {
+    "path": "docs/assets/dsh-railway-window-demo.gif",
+    "kind": "demo",
+    "alt": "Animated dsh-railway-window terminal session",
+    "caption": "The same run, assembled line by line."
+  }
+]
