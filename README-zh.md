@@ -42,30 +42,17 @@ dsh --profile <name> --dump-config | grep 'dsh-railway-window'
 
 **边界（中文译文，以英文原文为准）：** 本插件核对一份 **铁路施工天窗台账** 的时间与算术自洽——每条天窗是否记录了作业内容或施工命令号，起止时间是否可解析且先后成立，所记天窗时长是否等于起止之差，批准时长是否不超过申请时长，天窗类型是否取自你的取值口径，天窗编号是否唯一，以及台账是否写明施工日期与铁路局。它**不**判定天窗是否应当批准、作业是否侵入限界、是否属于不安全行为，或是否影响交通安全。
 
-> ### ⚠️ Read this before trusting a citation in the report
+> ### ⚠️ 在相信报告中的引文之前，请先读这一节（以英文原文为准）
 >
-> **Every `excerpt` in this plugin's rule pack says, in so many words, that the clause text was not
-> obtained.** The regime lives in 《铁路营业线施工安全管理办法》 and in each railway bureau's own work-window
-> and traffic-control-order measures. The verification pass could not retrieve verbatim clause text, so rather
-> than paraphrase a quotation the pack states the gap in the `excerpt` field itself and puts the honest
-> reasoning in `note`. Every rule is therefore `warn` or `info`, and a test asserts that no rule claims a
-> quotation it does not have. **When the texts are in hand, replace each `excerpt` with the real clause and
-> raise `kind` to `direct`.**
+> **本插件规则库中的每一个 `excerpt` 都明文写着：条款原文本次未取得。** 该制度见于《铁路营业线施工安全管理办法》以及各铁路局自己的施工天窗与行车调度命令办法。核验环节无法取得逐字条款原文，因此本规则库不去转述一段引文，而是在 `excerpt` 字段本身写明这一缺口，并把诚实的推理放进 `note`。因此每条规则都是 `warn` 或 `info`，并且有一项测试断言没有任何规则声称拥有它并不拥有的引文。**待取得原文后，请把每个 `excerpt` 换成真实条款，并把 `kind` 提到 `direct`。**
 >
-> Three limits matter before trusting a finding:
+> 在相信任何一条发现之前，有三项限制值得注意：
 >
-> - **The plugin ships no window classification and no status vocabulary.** How windows are classified and how
->   their states are worded varies by bureau, so `RW-005` reports itself in `skipped` until you configure them.
-> - **No approval-ratio ceiling is built in.** Whether an approved window may be shorter than applied for, and
->   by how much, is the bureau's rule; `RW-004` only checks that the approved figure does not exceed the
->   applied one, which is a data-entry property rather than a substantive one.
-> - **The duration unit is days, and the rule says so.** `RW-003` measures the span in minutes internally and
->   expresses it in days, so a window that starts and ends on the same calendar day is measured correctly. A
->   register that records durations in minutes differs by a factor of 1440 — repoint `daysField` at a
->   day-denominated column, or disable the rule.
+> - **本插件不附带天窗分类，也不附带状态词表。** 天窗如何分类、其状态如何措辞因局而异，因此在配置之前，`RW-005` 会把自己记入 `skipped`。
+> - **不内置任何批准比例上限。** 批准的天窗是否可以短于申请时长、可以短多少，是路局的规则；`RW-004` 只核对批准数值不超过申请数值，这是录入层面的属性，而不是实质层面的属性。
+> - **时长单位是天，规则本身也写明了这一点。** `RW-003` 内部按分钟计量时间跨度，再以天表示，因此起止在同一日历日内的天窗会被正确计量。以分钟记录时长的台账会相差 1440 倍——请把 `daysField` 指向以天为单位的栏目，或停用该规则。
 >
-> The plugin also **does not handle crossing midnight**: a window written as two same-day times
-> (`23:30` to `01:30`) will read as a reversed pair. Record the date on both sides, or disable that rule.
+> 本插件也**不处理跨零点**：一条写成两个同日时刻的天窗（`23:30` 至 `01:30`）会被读成前后颠倒的一对。请在两栏都记录日期，或停用该规则。
 
 ## Compatibility
 
