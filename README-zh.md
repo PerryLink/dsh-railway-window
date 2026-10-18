@@ -40,12 +40,7 @@ dsh --profile <name> --dump-config | grep 'dsh-railway-window'
 | 各铁路局集团公司施工天窗管理办法（本机构配置） | 无统一标准（本条依据为台账的申请与批准两栏） | RW-004 |
 | 各铁路局集团公司施工天窗管理办法（本机构配置） | 无统一标准（本条依据为本机构分类口径） | RW-005 |
 
-**Boundary:** this plugin checks a **铁路施工天窗台账** for time and arithmetic self-consistency — that each window
-records its work content or its traffic-control order number, that the start and end times parse and follow each
-other, that the recorded duration equals the span, that the approved duration does not exceed the applied
-duration, that the window type comes from your vocabulary, that window numbers are unique, and that the register
-names its working date and railway bureau. It does **not** decide whether a window should be granted, whether
-work encroached on the clearance gauge, whether it was an unsafe act, or whether it affected traffic safety.
+**边界（中文译文，以英文原文为准）：** 本插件核对一份 **铁路施工天窗台账** 的时间与算术自洽——每条天窗是否记录了作业内容或施工命令号，起止时间是否可解析且先后成立，所记天窗时长是否等于起止之差，批准时长是否不超过申请时长，天窗类型是否取自你的取值口径，天窗编号是否唯一，以及台账是否写明施工日期与铁路局。它**不**判定天窗是否应当批准、作业是否侵入限界、是否属于不安全行为，或是否影响交通安全。
 
 > ### ⚠️ Read this before trusting a citation in the report
 >
