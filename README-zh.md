@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-railway-window?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-railway-window?ref=badge)
 
 `dsh-railway-window` 读取一份铁路施工天窗台账——当日表头加每条天窗一行——核对这份台账自身的时间与算术自洽：每条天窗是否记录了作业内容或施工命令号、起止时间是否可解析且先后成立、所记天窗时长是否等于起止之差、批准时长是否不超过申请时长、天窗类型是否出自你配置的取值、天窗编号是否唯一、台账是否声明施工日期与铁路局（集团公司）。
 
