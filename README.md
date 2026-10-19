@@ -15,13 +15,17 @@ dsh --profile <name> --dump-config | grep 'dsh-railway-window'
 
 ## What it looks like
 
-![Terminal demo of dsh-railway-window: real output over its RW-002 fixture](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-hero.png)
+![Workflow diagram for dsh-railway-window: call → plugin → result.](docs/assets/dsh-railway-window-flow.svg)
 
-![Animated terminal demo of dsh-railway-window](https://raw.githubusercontent.com/PerryLink/dsh-railway-window/main/docs/assets/dsh-railway-window-demo.gif)
+*Workflow overview: call → plugin → result. The examples below use the real command surface.*
 
-Real output from this plugin over its own `RW-002` test fixture — not a mock-up. The rule pack ships no invented quotations, so a finding names both the clause it applied and the fact that the clause text was not obtained.
+
 
 ## What it answers
+
+### Examples
+
+The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
 | You ask | What it answers |
 |---|---|
