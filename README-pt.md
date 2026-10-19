@@ -29,6 +29,35 @@ Saída real deste plugin sobre o seu próprio fixture de teste `RW-002` — não
 
 A tabela abaixo é o conjunto de exemplos: a primeira linha é o caso detalhado e as demais são casos curtos.
 
+#### Saída detalhada
+
+**Ferramenta** `railway_window`
+
+**Entrada**
+
+~~~json
+{"date":"2026-03-10","bureau":"某某铁路局集团公司","rows":[{"序号":"1","天窗类型":"V 类","开始时间":"2026-03-10 09:00","结束时间":"2026-03-10 11:00","作业内容":"","施工命令号":""}]}
+~~~
+ 
+**Saída**
+
+~~~json
+{
+  "id": "dsh-railway-window.RW-001.de09b5a6",
+  "ruleId": "RW-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "workContent"
+  },
+  "found": "第 1 行 workContent、permitNo 都为空",
+  "expected": "workContent、permitNo 至少应填写一项",
+  "fix": "补填作业内容与施工命令号；本条只核对是否填写，不判断施工是否违反规定"
+}
+~~~
+
+*Observado em `dsh-railway-window/tests/fixtures/RW-001/RW-001-unsafe.json (cases.json expects 1×RW-001); executed parseMaterial+runCheck, checkedAt=2026-10-06T00:00:00.000Z`*
+
 | Você pergunta | O que ele responde |
 |---|---|
 | Uma linha não regista nem o conteúdo de trabalho nem o número da ordem de controlo de tráfego. Isso é reportado? | Sim. `RW-001` exige que em cada janela esteja preenchido pelo menos um dos dois, `workContent` ou `permitNo`, e reporta a linha em que faltam ambos. Verifica apenas que um deles está preenchido; não julga se a obra se manteve dentro do âmbito autorizado nem se algo invadiu o gabarito de circulação. |

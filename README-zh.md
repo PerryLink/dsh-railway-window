@@ -29,6 +29,35 @@ dsh --profile <name> --dump-config | grep 'dsh-railway-window'
 
 下表是示例集：第一行是详细走查，其余行是简短案例。
 
+#### 详细输出
+
+**工具** `railway_window`
+
+**输入**
+
+~~~json
+{"date":"2026-03-10","bureau":"某某铁路局集团公司","rows":[{"序号":"1","天窗类型":"V 类","开始时间":"2026-03-10 09:00","结束时间":"2026-03-10 11:00","作业内容":"","施工命令号":""}]}
+~~~
+ 
+**输出**
+
+~~~json
+{
+  "id": "dsh-railway-window.RW-001.de09b5a6",
+  "ruleId": "RW-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "workContent"
+  },
+  "found": "第 1 行 workContent、permitNo 都为空",
+  "expected": "workContent、permitNo 至少应填写一项",
+  "fix": "补填作业内容与施工命令号；本条只核对是否填写，不判断施工是否违反规定"
+}
+~~~
+
+*来源 `dsh-railway-window/tests/fixtures/RW-001/RW-001-unsafe.json (cases.json expects 1×RW-001); executed parseMaterial+runCheck, checkedAt=2026-10-06T00:00:00.000Z`*
+
 | 你会问 | 它怎么答 |
 |---|---|
 | 有一行既没填作业内容，也没填施工命令号，会被报出来吗？ | 会。`RW-001` 要求每条天窗的 `workContent` 与 `permitNo` 至少填一个，两项都缺时报出该行。它只核对是否填了其中一个，不判断该施工是否在准许范围内、是否侵入限界。 |

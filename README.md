@@ -28,6 +28,35 @@ dsh --profile <name> --dump-config | grep 'dsh-railway-window'
 
 The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
+#### Detailed output
+
+**Tool** `railway_window`
+
+**Input**
+
+~~~json
+{"date":"2026-03-10","bureau":"某某铁路局集团公司","rows":[{"序号":"1","天窗类型":"V 类","开始时间":"2026-03-10 09:00","结束时间":"2026-03-10 11:00","作业内容":"","施工命令号":""}]}
+~~~
+ 
+**Output**
+
+~~~json
+{
+  "id": "dsh-railway-window.RW-001.de09b5a6",
+  "ruleId": "RW-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "workContent"
+  },
+  "found": "第 1 行 workContent、permitNo 都为空",
+  "expected": "workContent、permitNo 至少应填写一项",
+  "fix": "补填作业内容与施工命令号；本条只核对是否填写，不判断施工是否违反规定"
+}
+~~~
+
+*Observed from `dsh-railway-window/tests/fixtures/RW-001/RW-001-unsafe.json (cases.json expects 1×RW-001); executed parseMaterial+runCheck, checkedAt=2026-10-06T00:00:00.000Z`*
+
 | You ask | What it answers |
 |---|---|
 | One row records neither the work content nor the traffic-control order number. Is that reported? | Yes. `RW-001` requires at least one of `workContent` and `permitNo` on every window and reports the row where both are missing. It only checks that one of them is filled in; it does not judge whether the work stayed inside its permitted scope or whether anything encroached on the clearance gauge. |
