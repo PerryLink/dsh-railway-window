@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-flow-dark.svg">
-  <img src="docs/assets/dsh-railway-window-flow-light.svg" width="100%" alt="dsh-railway-window 数据流：台账 JSON / YAML → railway_window → rules/railway-window.yaml（RW-001…RW-007）→ 报告（found / expected / fix），未执行的检查进 skipped[]">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-railway-window-hero-zh-light.webp" width="100%" alt="dsh-railway-window 配图：左列是插件名与价值句；右侧是一份天窗台账——1 号天窗 09:00 到 11:00、时长 0.0833 天、申请与批准都是 120，下方是时间窗轨道与 2 h = 0.0833 天的算式，以及 RW-001（作业内容与施工命令号都为空）和 RW-005（类型取值未配置、进 skipped）两张卡片；底部报告行：1 条差异、1 条未执行，结论留给审核人">
 </picture>
 
 # dsh-railway-window
@@ -53,6 +53,11 @@ dsh plugin --profile <name> add dsh-railway-window
 ```
 
 工具名是 `railway_window`；材料从 `file` 路径读，或直接用 `material` 内联文本。计算全程在主机端完成，不联网、不调用模型。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-railway-window-flow-v5-light.svg" width="100%" alt="dsh-railway-window 结构图：左栏是材料入口——file 或 material 二选一，读取层要求 windowNo / startAt / endAt / workContent 至少一项，缺则直接报错；中栏是加载期校验后的规则包，RW-001..RW-007 依次给出严重级封顶与所读字段，RW-005 的取值出厂为空、默认进 skipped；右栏是 issues[]（行号 + 栏名 + found/expected/fix）与 skipped[]（规则 id + 原因）两条通道，汇入报告卡（summary / issueCount / skippedCount / 免责声明），结论交给审核人">
+</picture>
 
 ## 三步上手
 
@@ -350,7 +355,7 @@ pnpm run check:citations
 node ../scripts/sync-shared.mjs dsh-railway-window   # 刷新 src/shared
 ```
 
-最后的 `sync-shared` 命令把 `../_shared` 的共享件同步进 `src/shared/`；每次改动共享件后都要重跑。配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Python + Pillow，输出深浅双版 SVG），可重复执行：`python scripts/gen-readme-assets.py`。
+最后的 `sync-shared` 命令把 `../_shared` 的共享件同步进 `src/shared/`；每次改动共享件后都要重跑。配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（hero 横幅用 Pillow 画、结构图用手写 SVG 画，各出深浅双版，hero 另有中英两套），可重复执行：`python scripts/gen-readme-assets.py`。
 
 <details>
 <summary>目录布局</summary>

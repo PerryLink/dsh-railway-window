@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-flow-dark.svg">
-  <img src="docs/assets/dsh-railway-window-flow-light.svg" width="100%" alt="Fluxo de dados do dsh-railway-window: registo JSON / YAML → railway_window → rules/railway-window.yaml (RW-001…RW-007) → relatório (found / expected / fix), com as verificações não executadas em skipped[]">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-hero-en-dark.webp">
+  <img src="docs/assets/dsh-railway-window-hero-en-light.webp" width="100%" alt="dsh-railway-window: à esquerda o nome do plugin e as suas frases de valor; à direita um registo de janelas de trabalho — janela 1 das 09:00 às 11:00, 0,0833 dias, 120 solicitados e 120 aprovados — e abaixo uma via de ocupação com a aritmética 2 h = 0,0833 d, e os cartões RW-001 (conteúdo de trabalho e número de ordem vazios) e RW-005 (vocabulário de tipos por configurar, passa a skipped); a linha de relatório mostra 1 diferença e 1 verificação não executada, e o parecer fica com o revisor">
 </picture>
 
 # dsh-railway-window
@@ -53,6 +53,11 @@ registo (JSON / YAML)──railway_window──▶ rules/railway-window.yaml
 ```
 
 A ferramenta é `railway_window`; o material chega por um caminho `file` ou diretamente como texto `material` em linha. Todo o cálculo acontece no host: sem rede e sem chamada ao modelo.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-railway-window-flow-v5-light.svg" width="100%" alt="dsh-railway-window, estrutura: a coluna esquerda é a porta de material — file ou material, e a camada de leitura exige pelo menos um de windowNo / startAt / endAt / workContent, senão dá erro; a coluna central é o pacote de regras já validado, RW-001..RW-007 por ordem, cada uma com o seu teto de gravidade e os campos que lê, e RW-005 com o vocabulário vazio que salta por omissão; a coluna direita tem os dois canais issues[] (linha + coluna + found/expected/fix) e skipped[] (id da regra + motivo), unidos no cartão de relatório (summary / issueCount / skippedCount / aviso), e o parecer fica com o revisor">
+</picture>
 
 ## Instalação em três passos
 
@@ -365,7 +370,7 @@ pnpm run check:citations
 node ../scripts/sync-shared.mjs dsh-railway-window   # atualizar src/shared
 ```
 
-O último comando `sync-shared` copia o kit partilhado de `../_shared` para `src/shared/`; volte a executá-lo após cada alteração partilhada. As imagens do README são geradas por programa por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow, par de SVG claro/escuro) e podem ser executadas de novo: `python scripts/gen-readme-assets.py`.
+O último comando `sync-shared` copia o kit partilhado de `../_shared` para `src/shared/`; volte a executá-lo após cada alteração partilhada. As imagens do README são geradas por programa por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para o banner hero, SVG escrito à mão para o diagrama; pares claro/escuro e hero em chinês e inglês) e podem ser executadas de novo: `python scripts/gen-readme-assets.py`.
 
 <details>
 <summary>Estrutura de diretórios</summary>

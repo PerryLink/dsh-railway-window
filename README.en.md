@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-flow-dark.svg">
-  <img src="docs/assets/dsh-railway-window-flow-light.svg" width="100%" alt="dsh-railway-window data flow: register JSON / YAML → railway_window → rules/railway-window.yaml (RW-001…RW-007) → report (found / expected / fix), with unrun checks listed in skipped[]">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-hero-en-dark.webp">
+  <img src="docs/assets/dsh-railway-window-hero-en-light.webp" width="100%" alt="dsh-railway-window: the plugin name and value lines on the left; on the right a work-window register — window 1 from 09:00 to 11:00, 0.0833 days, 120 applied and 120 approved — then a possession track with the 2 h = 0.0833 d arithmetic, then the RW-001 finding (work content and order number both blank) and the RW-005 skip (type vocabulary not configured); the report line shows 1 difference and 1 check not executed, and the verdict stays with the reviewer">
 </picture>
 
 # dsh-railway-window
@@ -53,6 +53,11 @@ register (JSON / YAML)──railway_window──▶ rules/railway-window.yaml
 ```
 
 The tool is `railway_window`; the material comes from a `file` path or directly from inline `material` text. All computation happens host-side: no network, no model call.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-railway-window-flow-v5-light.svg" width="100%" alt="dsh-railway-window structure: the left bay is the material gate — file or material, with the reader requiring at least one of windowNo / startAt / endAt / workContent (otherwise it errors); the middle bay is the validated rule pack, RW-001..RW-007 in order, each with its severity cap and the fields it reads, and RW-005 shipping an empty vocabulary so it skips by default; the right bay holds the two channels issues[] (row + field + found/expected/fix) and skipped[] (rule id + reason), merged into the report card (summary / issueCount / skippedCount / disclaimer), with the verdict left to the reviewer">
+</picture>
 
 ## Three-step setup
 
@@ -364,7 +369,7 @@ pnpm run check:citations
 node ../scripts/sync-shared.mjs dsh-railway-window   # refresh src/shared
 ```
 
-The final `sync-shared` command copies the shared kit from `../_shared` into `src/shared/`; re-run it after every shared change. The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow, light/dark SVG pair) and are safe to re-run: `python scripts/gen-readme-assets.py`.
+The final `sync-shared` command copies the shared kit from `../_shared` into `src/shared/`; re-run it after every shared change. The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow for the hero banner, hand-written SVG for the structure diagram; light/dark pairs, and the hero comes in Chinese and English) and are safe to re-run: `python scripts/gen-readme-assets.py`.
 
 <details>
 <summary>Directory layout</summary>

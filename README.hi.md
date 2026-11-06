@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-flow-dark.svg">
-  <img src="docs/assets/dsh-railway-window-flow-light.svg" width="100%" alt="dsh-railway-window डेटा प्रवाह: रजिस्टर JSON / YAML → railway_window → rules/railway-window.yaml (RW-001…RW-007) → रिपोर्ट (found / expected / fix), बिना चली जाँचें skipped[] में">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-hero-en-dark.webp">
+  <img src="docs/assets/dsh-railway-window-hero-en-light.webp" width="100%" alt="dsh-railway-window: बाईं ओर प्लगइन का नाम और मूल्य-पंक्तियाँ; दाईं ओर कार्य-विंडो रजिस्टर — विंडो 1, 09:00 से 11:00, 0.0833 दिन, 120 आवेदित और 120 स्वीकृत — समय-पट्टी और 2 h = 0.0833 d के हिसाब के साथ, फिर RW-001 (कार्य-सामग्री और आदेश क्रमांक खाली) और RW-005 (प्रकार-शब्दावली कॉन्फ़िगर नहीं, skipped) कार्ड; रिपोर्ट पंक्ति: 1 अंतर, 1 जाँच नहीं चली — निर्णय समीक्षक का">
 </picture>
 
 # dsh-railway-window
@@ -53,6 +53,11 @@ dsh plugin --profile <name> add dsh-railway-window
 ```
 
 उपकरण का नाम `railway_window` है; सामग्री `file` पथ से या सीधे `material` इनलाइन पाठ से आती है। पूरी गणना होस्ट पर होती है — कोई नेटवर्क नहीं, कोई मॉडल कॉल नहीं।
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-railway-window-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-railway-window-flow-v5-light.svg" width="100%" alt="dsh-railway-window, संरचना: बायाँ स्तंभ सामग्री-प्रवेश है — file या material, पढ़ने की परत को windowNo / startAt / endAt / workContent में से कम से कम एक चाहिए, वरना त्रुटि; मध्य स्तंभ सत्यापित नियम-पैक है, RW-001..RW-007 क्रम से, हर नियम के साथ उसकी गंभीरता-सीमा और पढ़े जाने वाले फ़ील्ड, और RW-005 की शब्दावली खाली होने से वह skipped में जाता है; दायाँ स्तंभ दो चैनल issues[] (पंक्ति + स्तंभ + found/expected/fix) और skipped[] (नियम id + कारण) दिखाता है, जो रिपोर्ट कार्ड (summary / issueCount / skippedCount / अस्वीकरण) में मिलते हैं, और निर्णय समीक्षक का रहता है">
+</picture>
 
 ## तीन चरणों में शुरुआत
 
@@ -364,7 +369,7 @@ pnpm run check:citations
 node ../scripts/sync-shared.mjs dsh-railway-window   # src/shared ताज़ा करें
 ```
 
-अंतिम `sync-shared` कमांड `../_shared` का साझा किट `src/shared/` में कॉपी करता है; हर साझा बदलाव के बाद इसे दोबारा चलाएँ। README की छवियाँ [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से कार्यक्रम द्वारा बनती हैं (Python + Pillow, हल्का/गहरा SVG जोड़ा) और दोबारा चलाई जा सकती हैं: `python scripts/gen-readme-assets.py`।
+अंतिम `sync-shared` कमांड `../_shared` का साझा किट `src/shared/` में कॉपी करता है; हर साझा बदलाव के बाद इसे दोबारा चलाएँ। README की छवियाँ [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से कार्यक्रम द्वारा बनती हैं (hero बैनर Pillow से, संरचना आरेख हाथ से लिखे SVG से; हल्का/गहरा जोड़ा और hero चीनी/अंग्रेज़ी में) और दोबारा चलाई जा सकती हैं: `python scripts/gen-readme-assets.py`।
 
 <details>
 <summary>निर्देशिका-संरचना</summary>
