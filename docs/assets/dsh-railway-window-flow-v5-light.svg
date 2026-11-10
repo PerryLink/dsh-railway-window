@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" role="img" aria-label="dsh-railway-window 结构图：材料入口（file 或 material，读取层要求 windowNo/startAt/endAt/workContent 至少一项）→ 规则包加载期校验后的 RW-001..RW-007 → issues[] 与 skipped[] 两条通道汇入报告，结论交给审核人">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#f9f6fd"/><stop offset="1" stop-color="#e4eaf8"/></linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#4B67B4" stop-opacity="0.16"/><stop offset="1" stop-color="#4B67B4" stop-opacity="0"/></radialGradient>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#16122c" flood-opacity="0.10"/></filter>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.4" markerHeight="6.4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#4B67B4"/></marker>
+<marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.4" markerHeight="6.4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b45309"/></marker>
+</defs>
+<rect width="1100" height="660" fill="url(#bg)"/>
+<ellipse cx="990" cy="26" rx="380" ry="230" fill="url(#glow)"/>
+<text x="44" y="58" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="28" xml:space="preserve" font-weight="700">dsh-railway-window</text>
+<text x="44.0" y="86" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="15" xml:space="preserve">railway_window</text>
+<text x="165.5" y="86" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="15" xml:space="preserve">读一份天窗台账：七条规则只看台账自身，差异回到行号与栏名，跑不了的逐条说明。</text>
+<rect x="911.0" y="36" width="145.0" height="26" rx="13.0" fill="#f5f2fb"/>
+<text x="923.0" y="53.08" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12" xml:space="preserve" font-weight="700">规则包 v2026.1 · 7 条</text>
+<rect x="44" y="109" width="4" height="14" rx="2" fill="#4B67B4"/>
+<text x="54" y="123" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" xml:space="preserve" font-weight="700">① 材料入口</text>
+<text x="276" y="123" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve" text-anchor="end">file 或 material</text>
+<rect x="316" y="109" width="4" height="14" rx="2" fill="#4B67B4"/>
+<text x="326" y="123" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" xml:space="preserve" font-weight="700">② 规则包 → 七条检查</text>
+<text x="700" y="123" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve" text-anchor="end">数据与代码分离</text>
+<rect x="740" y="109" width="4" height="14" rx="2" fill="#4B67B4"/>
+<text x="750" y="123" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" xml:space="preserve" font-weight="700">③ 两条通道 → 报告</text>
+<text x="1056" y="123" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve" text-anchor="end">空 ≠ 无问题</text>
+<rect x="44" y="136" width="232" height="400" rx="20" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<rect x="56" y="152" width="208" height="50" rx="12" fill="#f5f2fb" stroke="#e6e2ef" stroke-width="1.2"/>
+<text x="68" y="172" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve" font-weight="700">file</text>
+<text x="68" y="191" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">绝对路径 · JSON / YAML</text>
+<text x="160" y="214" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve" text-anchor="middle">或</text>
+<rect x="56" y="218" width="208" height="50" rx="12" fill="#f5f2fb" stroke="#e6e2ef" stroke-width="1.2"/>
+<text x="68" y="238" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve" font-weight="700">material</text>
+<text x="68" y="257" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">内联文本 · JSON / YAML</text>
+<line x1="160" y1="270" x2="160" y2="280" stroke="#4B67B4" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="56" y="282" width="208" height="110" rx="12" fill="#ffffff" stroke="#4B67B4" stroke-width="1.4"/>
+<text x="68.0" y="302" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve">读取层</text>
+<text x="111.0" y="302" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve">parseMaterial</text>
+<text x="68" y="324" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">至少携带一项，否则报错：</text>
+<text x="68" y="342" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">windowNo · startAt</text>
+<text x="68" y="358" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">endAt · workContent</text>
+<text x="68" y="378" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">列名归一，保留原栏名</text>
+<rect x="56" y="400" width="208" height="48" rx="12" fill="#fdf3e9" stroke="#b45309" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="68" y="418" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">缺这四项 → 直接报错，</text>
+<text x="68" y="436" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve" font-weight="700">不产出空报告</text>
+<text x="56" y="466" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">材料 = 表头 + 每条天窗一行</text>
+<text x="56" y="484" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">读一层只归一，不改原件</text>
+<text x="56" y="502" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">表头 date · bureau 也读</text>
+<rect x="316" y="136" width="384" height="400" rx="20" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<rect x="328" y="150" width="360" height="60" rx="12" fill="#f5f2fb"/>
+<text x="342" y="168" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve" font-weight="700">规则包加载期校验：不通过就整体失败</text>
+<text x="342" y="186" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">依据封顶：原则推导 ≤ warn · 本机构 ≤ info</text>
+<text x="342" y="202" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">excerpt 逐字；取不到就写明，不伪造引文</text>
+<rect x="328" y="218" width="360" height="40" fill="#faf8fe"/>
+<line x1="328" y1="258" x2="688" y2="258" stroke="#dcd8ea" stroke-width="1"/>
+<text x="334" y="235" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve" font-weight="700">RW-001</text>
+<rect x="391" y="222" width="38.0" height="18" rx="9.0" fill="#f5f2fb"/>
+<text x="398" y="234.74" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve" font-weight="700">warn</text>
+<text x="438.0" y="235" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve">作业内容或命令号至少一项</text>
+<text x="334.0" y="252" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">presenceAny</text>
+<text x="405.0" y="252" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">· workContent | permitNo</text>
+<line x1="328" y1="298" x2="688" y2="298" stroke="#dcd8ea" stroke-width="1"/>
+<text x="334" y="275" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve" font-weight="700">RW-002</text>
+<rect x="391" y="262" width="38.0" height="18" rx="9.0" fill="#f5f2fb"/>
+<text x="398" y="274.74" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve" font-weight="700">warn</text>
+<text x="438.0" y="275" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve">起止时间可解析且先后成立</text>
+<text x="334.0" y="292" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">date</text>
+<text x="363.0" y="292" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">· startAt ≤ endAt</text>
+<rect x="328" y="298" width="360" height="40" fill="#faf8fe"/>
+<line x1="328" y1="338" x2="688" y2="338" stroke="#dcd8ea" stroke-width="1"/>
+<text x="334" y="315" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve" font-weight="700">RW-003</text>
+<rect x="391" y="302" width="38.0" height="18" rx="9.0" fill="#f5f2fb"/>
+<text x="398" y="314.74" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve" font-weight="700">warn</text>
+<text x="438.0" y="315" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve">时长等于起止之差（按天）</text>
+<text x="334.0" y="332" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">derivedDays</text>
+<text x="405.0" y="332" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">· durationMin ≈ end−start · 容差 0.01</text>
+<line x1="328" y1="378" x2="688" y2="378" stroke="#dcd8ea" stroke-width="1"/>
+<text x="334" y="355" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve" font-weight="700">RW-004</text>
+<rect x="391" y="342" width="38.0" height="18" rx="9.0" fill="#f5f2fb"/>
+<text x="398" y="354.74" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve" font-weight="700">info</text>
+<text x="438.0" y="355" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve">批准时长不超过申请时长</text>
+<text x="334.0" y="372" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">fieldComparison</text>
+<text x="429.0" y="372" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">· approvedMin ≤ appliedMin</text>
+<rect x="328" y="378" width="360" height="40" fill="#faf8fe"/>
+<line x1="328" y1="418" x2="688" y2="418" stroke="#dcd8ea" stroke-width="1"/>
+<text x="334" y="395" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve" font-weight="700">RW-005</text>
+<rect x="391" y="382" width="38.0" height="18" rx="9.0" fill="#f5f2fb"/>
+<text x="398" y="394.74" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve" font-weight="700">info</text>
+<text x="438.0" y="395" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve">类型取自你配置的取值</text>
+<text x="334.0" y="412" fill="#b45309" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">enum</text>
+<text x="363.0" y="412" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">· windowType ∈ values · 出厂为空 → skipped</text>
+<line x1="328" y1="458" x2="688" y2="458" stroke="#dcd8ea" stroke-width="1"/>
+<text x="334" y="435" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve" font-weight="700">RW-006</text>
+<rect x="391" y="422" width="38.0" height="18" rx="9.0" fill="#f5f2fb"/>
+<text x="398" y="434.74" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve" font-weight="700">warn</text>
+<text x="438.0" y="435" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve">天窗编号在台账内唯一</text>
+<text x="334.0" y="452" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">unique</text>
+<text x="375.0" y="452" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">· windowNo · 忽略空白</text>
+<rect x="328" y="458" width="360" height="40" fill="#faf8fe"/>
+<text x="334" y="475" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve" font-weight="700">RW-007</text>
+<rect x="391" y="462" width="38.0" height="18" rx="9.0" fill="#f5f2fb"/>
+<text x="398" y="474.74" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve" font-weight="700">warn</text>
+<text x="438.0" y="475" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve">表头声明日期与铁路局</text>
+<text x="334.0" y="492" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">headerPresence</text>
+<text x="423.0" y="492" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">· 表头 date · bureau</text>
+<text x="334" y="514" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">每条规则只走一条：有差异 → issues[]；</text>
+<text x="334" y="530" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">跑不了 → skipped[]；跑通无差异 → 不出条目。</text>
+<rect x="740" y="136" width="316" height="400" rx="20" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<rect x="752" y="152" width="292" height="130" rx="18" fill="#ffffff" stroke="#4B67B4" stroke-width="1.6" filter="url(#soft)"/>
+<text x="768" y="180" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="15" xml:space="preserve" font-weight="700">issues[]</text>
+<rect x="989.0" y="164" width="39.0" height="20" rx="10.0" fill="#f5f2fb"/>
+<text x="998.0" y="177.74" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve" font-weight="700">1 条</text>
+<rect x="768" y="192" width="51.0" height="20" rx="10.0" fill="#f5f2fb"/>
+<text x="776" y="205.74" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve" font-weight="700">第 1 行</text>
+<rect x="827.0" y="192" width="148.0" height="20" rx="10.0" fill="#f5f2fb"/>
+<text x="835.0" y="205.74" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve" font-weight="700">workContent / permitNo</text>
+<text x="768" y="242" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve">都为空 → 应至少填一项</text>
+<text x="768" y="260" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">每条都带 found · expected · fix</text>
+<text x="768" y="274" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">定位 = 行号 + 栏名，可自己重算</text>
+<rect x="752" y="290" width="292" height="112" rx="18" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="768" y="318" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="15" xml:space="preserve" font-weight="700">skipped[]</text>
+<rect x="989.0" y="302" width="39.0" height="20" rx="10.0" fill="#f5f2fb"/>
+<text x="998.0" y="315.74" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve" font-weight="700">1 条</text>
+<text x="768.0" y="348" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve">RW-005</text>
+<text x="817.5" y="348" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve">· values 未配置</text>
+<text x="768" y="370" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">规则 id 与原因一起进报告</text>
+<text x="768" y="390" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">空 issues ≠ 没问题；两条一起读</text>
+<line x1="752" y1="415" x2="820" y2="415" stroke="#dcd8ea" stroke-width="1"/>
+<line x1="976" y1="415" x2="1044" y2="415" stroke="#dcd8ea" stroke-width="1"/>
+<text x="898" y="419" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve" text-anchor="middle">两条通道 → 同一份报告</text>
+<rect x="752" y="428" width="292" height="104" rx="18" fill="#ffffff" stroke="#16a34a" stroke-width="1.6" filter="url(#soft)"/>
+<text x="768.0" y="452" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" xml:space="preserve">报告 ·</text>
+<text x="805.0" y="452" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" xml:space="preserve">buildView</text>
+<text x="768" y="474" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">summary{error, warn, info}</text>
+<text x="768" y="488" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">issueCount · skippedCount</text>
+<text x="768.0" y="502" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" xml:space="preserve">checkedAt · rulesetVersion ·</text>
+<text x="942.0" y="502" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">免责声明</text>
+<line x1="768" y1="512" x2="1028" y2="512" stroke="#dcd8ea" stroke-width="1"/>
+<text x="768" y="526" fill="#16a34a" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12" xml:space="preserve" font-weight="700">审核人：结论不在报告里</text>
+<line x1="266" y1="330" x2="312" y2="330" stroke="#4B67B4" stroke-width="1.8" marker-end="url(#arr)"/>
+<path d="M700 292 H718" fill="none" stroke="#4B67B4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M718 216 V346" fill="none" stroke="#4B67B4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="718" y1="216" x2="748" y2="216" stroke="#4B67B4" stroke-width="1.8" marker-end="url(#arr)"/>
+<line x1="718" y1="346" x2="748" y2="346" stroke="#b45309" stroke-width="1.8" marker-end="url(#arr2)"/>
+<line x1="44" y1="556" x2="1056" y2="556" stroke="#dcd8ea" stroke-width="1"/>
+<text x="44" y="580" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12" xml:space="preserve">严重级跟着证据走：原则推导 ≤ warn · 本机构配置 ≤ info；excerpt 必须逐字，取不到就写明，不伪造引文。</text>
+<text x="44" y="606" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" xml:space="preserve">config：rulesFile · disabledRules · onlyRules · skipNotes · timeoutMs ｜ 只读材料 · 无网络 · 不调用模型 · 不写回原件</text>
+</svg>
