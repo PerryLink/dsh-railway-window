@@ -59,6 +59,11 @@ La herramienta es `railway_window`; el material llega por una ruta `file` o dire
   <img src="docs/assets/dsh-railway-window-flow-v5-light.svg" width="100%" alt="dsh-railway-window, estructura: la columna izquierda es la puerta de material — file o material, y la capa de lectura exige al menos uno de windowNo / startAt / endAt / workContent, o da error; la columna central es el paquete de reglas ya validado, RW-001..RW-007 en orden, cada una con su tope de gravedad y los campos que lee, y RW-005 con el vocabulario vacío que salta por defecto; la columna derecha tiene los dos canales issues[] (fila + columna + found/expected/fix) y skipped[] (id de regla + motivo), unidos en la tarjeta de informe (summary / issueCount / skippedCount / aviso), y el dictamen queda en el revisor">
 </picture>
 
+![dsh-railway-window: ejecución real de terminal](docs/assets/dsh-railway-window-demo.gif)
+
+*Repetición animada de una ejecución real registrada en este repositorio.*
+
+
 ## Instalación en tres pasos
 
 1. **Instalar** (elija un canal; npm tiene `0.2.9`):

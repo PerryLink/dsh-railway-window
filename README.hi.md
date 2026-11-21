@@ -59,6 +59,11 @@ dsh plugin --profile <name> add dsh-railway-window
   <img src="docs/assets/dsh-railway-window-flow-v5-light.svg" width="100%" alt="dsh-railway-window, संरचना: बायाँ स्तंभ सामग्री-प्रवेश है — file या material, पढ़ने की परत को windowNo / startAt / endAt / workContent में से कम से कम एक चाहिए, वरना त्रुटि; मध्य स्तंभ सत्यापित नियम-पैक है, RW-001..RW-007 क्रम से, हर नियम के साथ उसकी गंभीरता-सीमा और पढ़े जाने वाले फ़ील्ड, और RW-005 की शब्दावली खाली होने से वह skipped में जाता है; दायाँ स्तंभ दो चैनल issues[] (पंक्ति + स्तंभ + found/expected/fix) और skipped[] (नियम id + कारण) दिखाता है, जो रिपोर्ट कार्ड (summary / issueCount / skippedCount / अस्वीकरण) में मिलते हैं, और निर्णय समीक्षक का रहता है">
 </picture>
 
+![dsh-railway-window का असली टर्मिनल रन](docs/assets/dsh-railway-window-demo.gif)
+
+*इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
+
+
 ## तीन चरणों में शुरुआत
 
 1. **इंस्टॉल** (कोई एक चैनल; npm पर `0.2.9` है):

@@ -59,6 +59,11 @@ The tool is `railway_window`; the material comes from a `file` path or directly 
   <img src="docs/assets/dsh-railway-window-flow-v5-light.svg" width="100%" alt="dsh-railway-window structure: the left bay is the material gate — file or material, with the reader requiring at least one of windowNo / startAt / endAt / workContent (otherwise it errors); the middle bay is the validated rule pack, RW-001..RW-007 in order, each with its severity cap and the fields it reads, and RW-005 shipping an empty vocabulary so it skips by default; the right bay holds the two channels issues[] (row + field + found/expected/fix) and skipped[] (rule id + reason), merged into the report card (summary / issueCount / skippedCount / disclaimer), with the verdict left to the reviewer">
 </picture>
 
+![dsh-railway-window: real terminal run](docs/assets/dsh-railway-window-demo.gif)
+
+*Animated replay of a real run recorded in this repository.*
+
+
 ## Three-step setup
 
 1. **Install** (pick one channel; npm has `0.2.9`):
