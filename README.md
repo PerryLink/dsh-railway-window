@@ -11,6 +11,8 @@
 
 面向铁路施工调度与现场管理的 DSH 核对插件：读取当日表头加每条天窗一行，按 7 条规则核对时间与算术自洽，只列材料内部能逐条指认的差异，不判合规、不认定责任。
 
+最近一次核验：DeepSeek Harness `dsh-v0.2.3-alpha.1`（2026-11-22）。
+
 [安装](#三步上手) · [配置](#配置) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -65,7 +67,7 @@ dsh plugin --profile <name> add dsh-railway-window
 
 ## 三步上手
 
-1. **安装**（三选一；npm 已发布 `0.2.9`）：
+1. **安装**（三选一；npm 已发布 `0.2.11`）：
 
    ```sh
    # git 通道（最新 main）
