@@ -7,6 +7,8 @@
 
 # dsh-railway-window
 
+Current version `0.2.12`.
+
 **List, in one pass, every row and column of a railway work-window register that does not add up — the verdict stays with the reviewer.**
 
 A DSH checker for railway construction dispatchers and site managers: it reads the day's header plus one row per work window and applies seven time and arithmetic checks, reporting only differences it can point to inside the material itself — no compliance verdict, no liability finding.
